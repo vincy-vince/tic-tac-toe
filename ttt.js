@@ -13,31 +13,29 @@ const winningMove = [
   [2, 4, 6],
 ];
 
-let latestMove = "";
+let latestMove = "X";
 
 cells.forEach((cell) => {
   cell.addEventListener("click", (event) => {
     const index = event.target.dataset.index;
     let player = event.target;
 
+    if (event.target.innerText === "") {
+      event.target.innerText = latestMove;
+      move();
+    } else {
+      alert("already filled");
+      return;
+    }
     function move() {
-      if (latestMove === "" || latestMove === "O") {
+      if (latestMove === "O") {
         console.log("X");
         latestMove = "X";
       } else {
         console.log("O");
-       latestMove = "O";
+        latestMove = "O";
       }
     }
-    move();
-    
-    if(event.target.innerText === ""){
-      event.target.innerText = latestMove
-    }else{
-      alert('already filled');
-      move(); 
-    }
-
   });
 });
 
