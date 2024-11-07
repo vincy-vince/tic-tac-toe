@@ -12,6 +12,11 @@ let oIndex = [];
 cells.forEach((cell) => {
   cell.addEventListener("click", (event) => {
     const index = event.target.dataset.index;
+    if (event.target.innerText !== "") {
+      alert("already filled");
+      return;
+    }
+    
     if (latestMove === "X") {
       xIndex.push(index);
     } else if (latestMove === "O") {
@@ -21,24 +26,19 @@ cells.forEach((cell) => {
     // console.log(oIndex);
 
     let player = event.target;
-
-    if (event.target.innerText === "") {
-      event.target.innerText = latestMove;
-      move();
-    } else {
-      alert("already filled");
-      return;
-    }
+ 
     function move() {
       if (latestMove === "O") {
         latestMove = "X";
-        winner();
       } else {
         latestMove = "O";
-        winner();
       }
     }
 
+    event.target.textContent = latestMove;
+  
+    winner();
+    move();
   });
 });
 function winner() {
@@ -79,7 +79,7 @@ function winner() {
       });
 
       if (isAvailable === true) {
-        alert(latestMove+" winner!");
+      document.getElementById('winner_screen').innerText = `${latestMove} is the winner`
       }
     });
   }
@@ -118,3 +118,5 @@ function playNow() {
 // problem statements:
 // 1. Alternative players for each onclick events.
 // 2. Alert when clicking in the filled box.
+// 3. track the index of the players.
+// 4. detcting winning moves and declaring the winner.

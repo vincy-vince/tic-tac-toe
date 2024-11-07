@@ -34,16 +34,9 @@ h2{
   margin-top:200px;
 }
 
-.play-now{
-  border-radius: 3px;
-  border: 2px bold rgb(202, 179, 179);
-  padding: 10px 15px;
-  background-color: gray;
-  font-size: 20px;
-  transition: background-color 0.15s;
-}
+
 
 .play-now:active{
-  background-color: #a39f9f;
+  background-color: #252525;
   transition: background-color 0.15s;
 }
