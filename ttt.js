@@ -1,5 +1,9 @@
 const playnow = document.querySelector(".play-now");
-
+// playnow.addEventListener('click' ,() => {
+//   playGame();
+// });
+// playnow.removeEventListener()
+// function playGame(){
 const cells = document.querySelectorAll(".cell");
 let latestMove = "X";
 let xIndex = [];
@@ -13,8 +17,8 @@ cells.forEach((cell) => {
     } else if (latestMove === "O") {
       oIndex.push(index);
     }
-    console.log(xIndex);
-    console.log(oIndex);
+
+    // console.log(oIndex);
 
     let player = event.target;
 
@@ -28,35 +32,59 @@ cells.forEach((cell) => {
     function move() {
       if (latestMove === "O") {
         latestMove = "X";
+        winner();
       } else {
         latestMove = "O";
+        winner();
       }
     }
-    // winner();
-    winner();
+
   });
 });
 function winner() {
   const winningMove = [
+    [0, 3, 6],
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
-    [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6],
   ];
-  
-  winningMove.forEach((val,i) => {
-  val.forEach((value,i) => {
-     if(val[i] == xIndex){
-      console.log('equal');
-     }
-  });
-  });
-}
 
+  if (
+    (latestMove === "X" && xIndex.length > 2) ||
+    (latestMove === "O" && oIndex.length > 2)
+  ) {
+    let checKiNDEX;
+    if (latestMove === "X") {
+      checKiNDEX = xIndex;
+    } else {
+      checKiNDEX = oIndex;
+    }
+    winningMove.forEach((winVal, i) => {
+      let isAvailable = true;
+      winVal.forEach((value) => {
+        let isMatched = false;
+        checKiNDEX.forEach((val, i) => {
+          if (value == val) {
+            isMatched = true;
+            return;
+          }
+        });
+        if (isMatched === false) {
+          isAvailable = false;
+        }
+      });
+
+      if (isAvailable === true) {
+        alert(latestMove+" winner!");
+      }
+    });
+  }
+}
+// }
 // function restart() {
 // const reStart = document.querySelector(".restart");
 
