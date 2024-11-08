@@ -31,12 +31,41 @@ row-gap:30px;
   cursor: pointer;
 }
 h2{
-  margin-top:200px;
+  margin-top:50px;
 }
 
+.restart{
+  background: #000;
+  border:2px dashed cornflowerblue;
+  padding: 10px 15px;
+  color:cornflowerblue;
+  font-size: 20px;
+  border-radius: 4px;
+  transition: background-color 0.10s;
+}
 
+.restart:active{
+  background-color: rgba(17, 17, 17, 0.829);
+  transition: background-color 0.10s;
+}
 
-.play-now:active{
-  background-color: #252525;
-  transition: background-color 0.15s;
+.ttt{
+  margin-bottom: 0;
+}
+
+.zoom-in{
+  color:rgba(245, 245, 245, 0.315);
+  animation: zoom-in 2s ease-out;
+}
+
+@keyframes zoom-in{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(5);
+  }
+  100%{
+    transform: scale(3);
+  }
 }
