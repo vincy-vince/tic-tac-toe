@@ -79,11 +79,10 @@ function winner() {
       document.getElementById(
         "winner_screen"
       ).innerText = `player ${lastPlayer} wins`;
-
-      // timeoutId = setTimeout(() => {
-      //   reset();
-      //   clearTimeout(timeoutId);
-      // }, 3000);
+      timeoutId = setTimeout(() => {
+        reset();
+        clearTimeout(timeoutId);
+      }, 3000);
       break;
     }
   }

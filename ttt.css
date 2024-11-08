@@ -2,8 +2,11 @@
 body{
   width:100vw;
   height: 100vh;
-  background-color: rgb(41, 40, 40);
-  color:white;
+  margin: 0;
+  padding: 0;
+  background-image: url(tic-tac-toe.jpg);
+  background-repeat: repeat;
+  background-size: contain;
 }
 
 .container{
@@ -16,19 +19,22 @@ row-gap:30px;
 
 .grid{
   display: grid;
-  grid-template-columns: repeat(3, 80px);  
-  height:200px;
+  grid-template-columns: repeat(3, 150px);  
+  height:300px;
   justify-content: center;
   /* margin-bottom:200px; */
 }
 
 .cell{
-  border: 1px solid white;
+  border: 2px solid rgb(225, 236, 255);
+  background-color: #000000b5;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 36px;
   cursor: pointer;
+  color: white;
+
 }
 h2{
   margin-top:50px;
@@ -36,12 +42,13 @@ h2{
 
 .restart{
   background: #000;
-  border:2px dashed cornflowerblue;
+  border:2px solid white;
   padding: 10px 15px;
-  color:cornflowerblue;
+  color:white;
   font-size: 20px;
   border-radius: 4px;
   transition: background-color 0.10s;
+  margin-top:36px;
 }
 
 .restart:active{
@@ -51,14 +58,15 @@ h2{
 
 .ttt{
   margin-bottom: 0;
+  color:white;
 }
 
 .zoom-in{
-  color:rgba(245, 245, 245, 0.315);
+  color:rgba(245, 245, 245, 0.909);
   animation: zoom-in 2s ease-out;
 }
 
-@keyframes zoom-in{
+/* @keyframes zoom-in{
   0%{
     transform: scale(1);
   }
@@ -68,4 +76,4 @@ h2{
   100%{
     transform: scale(3);
   }
-}
+} */
