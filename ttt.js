@@ -30,9 +30,8 @@ cells.forEach((cell) => {
     }
   });
 });
-
-var timeoutId;
-
+// let winnerIndex = [];
+// let GameOver = [];
 function winner() {
   let winnerMove = [
     [0, 1, 2],
@@ -76,13 +75,41 @@ function winner() {
       }
     }
     if (isAvailable === true) {
+//       winnerIndex.push(playerIndex);
+//       winnerIndex.forEach((winNo) => {
+//         winNo.forEach((val) => {
+//           GameOver.push(val);
+//           // console.log(GameOver);
+//           // console.log(playerIndex);
+//           GameOver.forEach((turn) => {
+//             console.log(GameOver);
+// console.log("player index "+ playerIndex);
+
+            // playerIndex.forEach((eachIndex) => {
+            //   if(eachIndex == turn){
+            //     const cells = document.querySelectorAll(".cell");
+            //     cells.forEach((cell) => {
+            //       cell.addClass = "blue-cell";
+            //     });
+            //   }
+            // })
+      //     });
+      //   });
+      // });
+playerIndex.forEach((playInd) => {
+  const cellEle = document.querySelectorAll(".cell");
+  cellEle.forEach((cell) => {
+    console.log(cell);
+  })
+})
       document.getElementById(
         "winner_screen"
       ).innerText = `player ${lastPlayer} wins`;
-      timeoutId = setTimeout(() => {
-        reset();
-        clearTimeout(timeoutId);
-      }, 3000);
+
+      //const timeoutId = setTimeout(() => {
+      //   reset();
+      //   clearTimeout(timeoutId);
+      // }, 3000);
       break;
     }
   }
@@ -94,7 +121,7 @@ function reset() {
   cells.forEach((cell) => {
     cell.innerText = "";
   });
-lastPlayer = "X";
+  lastPlayer = "X";
   oIndex = [];
   xIndex = [];
   return;

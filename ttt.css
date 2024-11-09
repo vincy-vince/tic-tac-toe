@@ -1,6 +1,5 @@
-
-body{
-  width:100vw;
+body {
+  width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -9,23 +8,26 @@ body{
   background-size: contain;
 }
 
-.container{
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-row-gap:30px;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
 }
 
-.grid{
+.grid {
   display: grid;
-  grid-template-columns: repeat(3, 150px);  
-  height:300px;
+  grid-template-columns: repeat(3, 150px);
+  height: 300px;
   justify-content: center;
   /* margin-bottom:200px; */
 }
+.cell-blue {
+  background-color: rgba(0, 255, 255, 0.747);
+}
 
-.cell{
+.cell {
   border: 2px solid rgb(225, 236, 255);
   background-color: #000000b5;
   display: flex;
@@ -34,46 +36,70 @@ row-gap:30px;
   font-size: 36px;
   cursor: pointer;
   color: white;
-
-}
-h2{
-  margin-top:50px;
+  transition: background-color 0.15s;
 }
 
-.restart{
-  background: #000;
-  border:2px solid white;
+.cell:hover {
+  background-color: rgba(219, 40, 76, 0.74);
+  transition: background-color 0.15s;
+}
+
+.cell:active {
+  background-color: rgba(0, 255, 255, 0.644);
+  transition: background-color 0.15s;
+}
+h2 {
+  margin-top: 50px;
+}
+
+.restart {
+  background: rgba(220, 20, 60, 0.808);
+  border: 2px solid crimson;
   padding: 10px 15px;
-  color:white;
+  color: white;
   font-size: 20px;
   border-radius: 4px;
-  transition: background-color 0.10s;
-  margin-top:36px;
+  transition: background-color 0.15s;
+  margin-top: 36px;
+  transition: background-color 0.15s;
 }
-
-.restart:active{
-  background-color: rgba(17, 17, 17, 0.829);
-  transition: background-color 0.10s;
+.restart:hover {
+  background-color: rgba(0, 255, 255, 0.726);
+  color: black;
+  border-color: aqua;
+  transition: background-color, color, border-color 0.15s;
 }
-
-.ttt{
-  margin-bottom: 0;
+.restart:active {
+  background-color: rgba(220, 20, 60, 0.562);
   color:white;
+  border: 2px solid rgba(220, 20, 60, 0.562);
+  transition: background-color, color, border 0.15s;
 }
 
-.zoom-in{
-  color:rgba(245, 245, 245, 0.909);
+.ttt {
+  margin-bottom: 0;
+  color: white;
+}
+
+.blue-cell{
+  background-color: aqua;
+}
+
+.zoom-in {
+  color: rgba(0, 255, 255, 0.952);
   animation: zoom-in 2s ease-out;
 }
-
-/* @keyframes zoom-in{
+/* 
+@keyframes zoom-in{
   0%{
     transform: scale(1);
   }
   50%{
     transform: scale(5);
+    color:rgba(0, 255, 255, 0.452);
   }
   100%{
     transform: scale(3);
+    color:rgba(0, 255, 255, 0.918);
   }
-} */
+}  */
