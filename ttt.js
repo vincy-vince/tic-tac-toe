@@ -13,6 +13,14 @@ cells.forEach((cell) => {
       oIndex.push(index);
     }
 
+    for (let a = 0; a < 9; a++) {
+      const cellEle = document.querySelectorAll(".js-cell");
+      let finalIndex = cellEle[a].attributes[0].value;
+      if (lastPlayer[finalIndex] != "") {
+      }
+      document.getElementById("winner_screen").innerText = "draw";
+    }
+
     if (event.target.textContent !== "") {
       alert("already filled");
     } else {
@@ -30,7 +38,7 @@ cells.forEach((cell) => {
     }
   });
 });
-// let winnerIndex = [];
+let winnerIndex = [];
 // let GameOver = [];
 function winner() {
   let winnerMove = [
@@ -68,45 +76,32 @@ function winner() {
           isMatched = true;
           break;
         }
+        console.log(playerIndex[y]);
       }
       if (isMatched === false) {
         isAvailable = false;
         break;
-      }
+      }  
     }
-    if (isAvailable === true) {
-//       winnerIndex.push(playerIndex);
-//       winnerIndex.forEach((winNo) => {
-//         winNo.forEach((val) => {
-//           GameOver.push(val);
-//           // console.log(GameOver);
-//           // console.log(playerIndex);
-//           GameOver.forEach((turn) => {
-//             console.log(GameOver);
-// console.log("player index "+ playerIndex);
 
-            // playerIndex.forEach((eachIndex) => {
-            //   if(eachIndex == turn){
-            //     const cells = document.querySelectorAll(".cell");
-            //     cells.forEach((cell) => {
-            //       cell.addClass = "blue-cell";
-            //     });
-            //   }
-            // })
-      //     });
-      //   });
-      // });
-playerIndex.forEach((playInd) => {
-  const cellEle = document.querySelectorAll(".cell");
-  cellEle.forEach((cell) => {
-    console.log(cell);
-  })
-})
+    if (isAvailable === true) {
       document.getElementById(
         "winner_screen"
       ).innerText = `player ${lastPlayer} wins`;
+      // compare it with the winner move
+      winnerMove.forEach((move) => {
+        move.forEach((arr) => {
+          playerIndex.forEach((player) => {
+            if (arr == player ) {
+              console.log(arr);
+              const cellEle = document.querySelectorAll(".js-cell");
+              cellEle[arr].style.backgroundColor = "rgba(0, 255, 255, 0.658)";
+            }
+          });
+        });
+      });
 
-      //const timeoutId = setTimeout(() => {
+      // const timeoutId = setTimeout(() => {
       //   reset();
       //   clearTimeout(timeoutId);
       // }, 3000);
@@ -126,3 +121,29 @@ function reset() {
   xIndex = [];
   return;
 }
+// attr[1].attributes[0].value
+// let attr = document.querySelectorAll(".js-cell")
+
+// DRAW :
+
+/*if (
+  lastPlayer[cellEle[0].attributes[0].value] !== "" &&
+  lastPlayer[cellEle[1].attributes[0].value] !== "" &&
+  lastPlayer[cellEle[2].attributes[0].value] !== "" &&
+  lastPlayer[cellEle[3].attributes[0].value] !== "" &&
+  lastPlayer[cellEle[4].attributes[0].value] !== "" &&
+  lastPlayer[cellEle[5].attributes[0].value] !== "" &&
+  lastPlayer[cellEle[6].attributes[0].value] !== "" &&
+  lastPlayer[cellEle[7].attributes[0].value] !== "" &&
+  lastPlayer[cellEle[8].attributes[0].value] !== ""
+) {
+  document.getElementById("winner_screen").innerText = "draw";
+}*/
+
+/* 
+  const disabled = () => {
+    for(let cell of cells){
+      cell.disabled = true;
+    }
+  };
+*/
