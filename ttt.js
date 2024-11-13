@@ -30,6 +30,7 @@ cells.forEach((cell) => {
     }
   });
 });
+
 let winnerIndex = [];
 // let GameOver = [];
 function winner() {
@@ -74,6 +75,7 @@ function winner() {
         break;
       }
     }
+
     if (isAvailable === true) {
       document.getElementById(
         "winner_screen"
@@ -89,13 +91,6 @@ function winner() {
       });
       break;
     }
-  }
-  if (
-    (playerIndex == xIndex && playerIndex.length >4) ||
-    (playerIndex == oIndex && playerIndex.length >4)
-  ) {
-    // const cellEle = document.querySelectorAll(".js-cell");
-    document.getElementById("winner_screen").innerText = "Draw";
   }
 }
 
