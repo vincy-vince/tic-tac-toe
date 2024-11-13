@@ -66,7 +66,6 @@ function winner() {
       for (y = 0; y < playerIndex.length; y++) {
         if (value == playerIndex[y]) {
           isMatched = true;
-          console.log(playerIndex[y]);
           break;
         }
       }
@@ -84,13 +83,19 @@ function winner() {
       winnerMove[i].forEach((move) => {
         playerIndex.forEach((player) => {
           if (move == player) {
-            console.log(move);
             cellEle[move].style.backgroundColor = "rgba(0, 255, 255, 0.658)";
           }
         });
       });
       break;
     }
+  }
+  if (
+    (playerIndex == xIndex && playerIndex.length >4) ||
+    (playerIndex == oIndex && playerIndex.length >4)
+  ) {
+    // const cellEle = document.querySelectorAll(".js-cell");
+    document.getElementById("winner_screen").innerText = "Draw";
   }
 }
 
