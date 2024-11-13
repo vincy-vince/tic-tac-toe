@@ -13,14 +13,6 @@ cells.forEach((cell) => {
       oIndex.push(index);
     }
 
-    for (let a = 0; a < 9; a++) {
-      const cellEle = document.querySelectorAll(".js-cell");
-      let finalIndex = cellEle[a].attributes[0].value;
-      if (lastPlayer[finalIndex] != "") {
-      }
-      document.getElementById("winner_screen").innerText = "draw";
-    }
-
     if (event.target.textContent !== "") {
       alert("already filled");
     } else {
@@ -52,17 +44,17 @@ function winner() {
     [2, 4, 6],
   ];
 
-  if (
-    (lastPlayer === "X" && lastPlayer.length > 2) ||
-    (lastPlayer === "O" && lastPlayer.length > 2)
-  ) {
-  }
-
   let playerIndex;
   if (lastPlayer === "X") {
     playerIndex = xIndex;
   } else {
     playerIndex = oIndex;
+  }
+
+  if (
+    (lastPlayer === "X" && playerIndex.length > 2) ||
+    (lastPlayer === "O" && playerIndex.length > 2)
+  ) {
   }
 
   for (let i = 0; i < winnerMove.length; i++) {
@@ -74,51 +66,44 @@ function winner() {
       for (y = 0; y < playerIndex.length; y++) {
         if (value == playerIndex[y]) {
           isMatched = true;
+          console.log(playerIndex[y]);
           break;
         }
-        console.log(playerIndex[y]);
       }
       if (isMatched === false) {
         isAvailable = false;
         break;
-      }  
+      }
     }
-
     if (isAvailable === true) {
       document.getElementById(
         "winner_screen"
       ).innerText = `player ${lastPlayer} wins`;
       // compare it with the winner move
-      winnerMove.forEach((move) => {
-        move.forEach((arr) => {
-          playerIndex.forEach((player) => {
-            if (arr == player ) {
-              console.log(arr);
-              const cellEle = document.querySelectorAll(".js-cell");
-              cellEle[arr].style.backgroundColor = "rgba(0, 255, 255, 0.658)";
-            }
-          });
+      const cellEle = document.querySelectorAll(".js-cell");
+      winnerMove[i].forEach((move) => {
+        playerIndex.forEach((player) => {
+          if (move == player) {
+            console.log(move);
+            cellEle[move].style.backgroundColor = "rgba(0, 255, 255, 0.658)";
+          }
         });
       });
-
-      // const timeoutId = setTimeout(() => {
-      //   reset();
-      //   clearTimeout(timeoutId);
-      // }, 3000);
       break;
     }
   }
 }
 
 function reset() {
+  lastPlayer = "X";
+  oIndex = [];
+  xIndex = [];
   document.getElementById("winner_screen").innerText = "";
   const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.innerText = "";
+    cell.style.backgroundColor = "";
   });
-  lastPlayer = "X";
-  oIndex = [];
-  xIndex = [];
   return;
 }
 // attr[1].attributes[0].value
@@ -139,6 +124,9 @@ function reset() {
 ) {
   document.getElementById("winner_screen").innerText = "draw";
 }*/
+
+// const cellEle = document.querySelectorAll(".js-cell");
+// document.getElementById("winner_screen").innerText = "draw";
 
 /* 
   const disabled = () => {
