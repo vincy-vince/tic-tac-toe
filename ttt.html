@@ -9,12 +9,17 @@
 </head>
 
 <body>
+  <canvas id="confetti"></canvas>
   <div class="container">
     <div>
-      <h1 class="ttt">
-        Tic Tac Toe
-      </h1>
-      <h2 class="zoom-in" id="winner_screen"></h2>
+      <div class="announcement">
+        <h1 class="ttt">
+          Tic Tac Toe
+        </h1>
+      </div>
+      <div>
+        <h2 class="zoom-in" id="winner_screen"></h2>
+      </div>
     </div>
     <div class="grid">
       <div data-index="0" id="win-blue" class="js-cell cell"></div>
@@ -31,7 +36,7 @@
       <button class="restart" onclick="reset()">restart</button>
     </div>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <script src="ttt.js"></script>
 </body>
 

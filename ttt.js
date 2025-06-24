@@ -1,7 +1,9 @@
+const canvas = document.querySelector("#confetti");
 let lastPlayer = "X";
 let xIndex = [];
 let oIndex = [];
 
+const jsConfetti = new JSConfetti();
 const cells = document.querySelectorAll(".cell");
 cells.forEach((cell) => {
   cell.addEventListener("click", (event) => {
@@ -20,7 +22,6 @@ cells.forEach((cell) => {
       winner();
       move();
     }
-
     function move() {
       if (lastPlayer === "X") {
         lastPlayer = "O";
@@ -80,6 +81,7 @@ function winner() {
       document.getElementById(
         "winner_screen"
       ).innerText = `player ${lastPlayer} wins`;
+      jsConfetti.addConfetti();
       // compare it with the winner move
       const cellEle = document.querySelectorAll(".js-cell");
       winnerMove[i].forEach((move) => {
@@ -89,7 +91,17 @@ function winner() {
           }
         });
       });
+      document.getElementById(
+        "winner_screen"
+      ).innerText = `congratulations player ${lastPlayer}`;
+      setTimeout(() => {
+        reset();
+      }, 2000);
       break;
+    }
+    if (xIndex.length + oIndex.length === 9) {
+      document.getElementById("winner_screen").innerText = "🤝 It's a Draw!";
+      
     }
   }
 }
@@ -106,32 +118,3 @@ function reset() {
   });
   return;
 }
-// attr[1].attributes[0].value
-// let attr = document.querySelectorAll(".js-cell")
-
-// DRAW :
-
-/*if (
-  lastPlayer[cellEle[0].attributes[0].value] !== "" &&
-  lastPlayer[cellEle[1].attributes[0].value] !== "" &&
-  lastPlayer[cellEle[2].attributes[0].value] !== "" &&
-  lastPlayer[cellEle[3].attributes[0].value] !== "" &&
-  lastPlayer[cellEle[4].attributes[0].value] !== "" &&
-  lastPlayer[cellEle[5].attributes[0].value] !== "" &&
-  lastPlayer[cellEle[6].attributes[0].value] !== "" &&
-  lastPlayer[cellEle[7].attributes[0].value] !== "" &&
-  lastPlayer[cellEle[8].attributes[0].value] !== ""
-) {
-  document.getElementById("winner_screen").innerText = "draw";
-}*/
-
-// const cellEle = document.querySelectorAll(".js-cell");
-// document.getElementById("winner_screen").innerText = "draw";
-
-/* 
-  const disabled = () => {
-    for(let cell of cells){
-      cell.disabled = true;
-    }
-  };
-*/
