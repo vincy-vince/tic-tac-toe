@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "11554000000067111",
+      "name": "Tic-tac-toe",
+      "domain": {
+        "id": "50028893618",
+        "name": "tic-tac-toe-60035362824.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60035362824",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}
